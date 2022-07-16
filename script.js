@@ -38,4 +38,5 @@ setInterval(() => {
 // a list to control their disply: if the word "chang" is added to 
 // an icon - it will be displayd. as long as we dont
 //get to the end of the icon array, we keep removing "change"
-// from icon and adding it to the next sibling. 
+// from icon and adding it to the next sibling.
+ 

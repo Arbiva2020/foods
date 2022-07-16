@@ -87,6 +87,14 @@ html{
     box-shadow: 1rem 1rem 1rem #000;
     /*in order to position the "before" pseudo element according to its parent element*/
     position: relative;
+    /*tilting the cards:*/
+    transform: rotateY(20deg) skewX(-2deg);
+    transition: transform 0.5s, box-shadow 0.5;
+}
+
+.card:hover{
+    transform: rotateY(20deg) skewX(-2deg) translateY(-3rem);
+    box-shadow: 2rem 2rem 2rem #000;
 }
 
 /*pseodo elements are elements that are not in the html itself*/
@@ -94,6 +102,7 @@ html{
 and have the ability to control on when they will appear. we style them
 seperately while stating the element they are attached to, and whether
 it is befor or after that element*/
+/*here we build the "3D" lines of the cards:*/
 .card::before{
     content: "";
     height: 100%;
@@ -102,8 +111,24 @@ it is befor or after that element*/
     position: absolute;
     top:0;
     left: -1rem;
+    /*for 3D illusion:*/
     transform: skewY(45deg);
     transform-origin: right;
+    box-shadow: -0.1rem -0.1rem -0.1rem #000;
+}
+
+.card::after{
+    content: "";
+    height: 1rem;
+    width: 100%;
+    background-color: #817824;
+    position: absolute;
+    top:-1rem;
+    left: 0;
+    /*for 3D illusion:*/
+    transform: skewX(45deg);
+    transform-origin: bottom;
+    box-shadow: -0.1rem -0.1rem -0.1rem #000;
 }
 
 .card-img {
@@ -135,4 +160,129 @@ it is befor or after that element*/
     box-shadow: -0.2rem -0.2rem -0.2rem #000;
 }
 /* end of section-2 */
+
+
+/* section-3 */
+.section-3 {
+    background-color: #333;
+    padding: 5rem 0;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 10rem;
+}
+
+.gallery-link {
+    position: relative;
+    margin: 4rem 1rem;
+}
+
+.gallery-link::before {
+    content: "";
+    position: absolute;
+    top:2vw;
+    left: 80%;
+    width: 0.2rem;
+    /* height: 80%; */
+    height: 0;
+    background-color: #fff;
+    transition: height .5s;
+}
+
+.gallery-link:hover::before {
+    height: 80%;
+}
+
+.gallery-link:hover::after {
+    width: 90%;
+}
+
+.gallery-link::after {
+    content: "";
+    position: absolute;
+    top:30%;
+    left:2rem;
+    /* width: 90%; */
+    width: 0;
+    height: 0.2rem;
+    background-color: #fff;
+    transition: width .5s;
+}
+
+.food-img {
+    height: 300px;
+    width: 200px;
+    object-fit: cover;
+    box-shadow: .3rem .3rem 0.1rem #f4f1f1, 
+    .5rem .5rem .1rem #343534, 
+    .7rem .7rem .1rem rgb(143, 135, 135);
+    transition: all 0.5s;
+}
+
+/*to change the shadow over the image*/
+.gallery-link:hover .food-img {
+    box-shadow: 1rem 1rem 0.1rem #f4f1f1, 
+    2rem 2rem .1rem #343534, 
+    3rem 3rem .1rem rgb(143, 135, 135);
+    filter: blur(0.5rem);
+    opacity: 0.5;
+    transform: scale(1.1);
+}
+
+.food-name {
+    position: absolute;
+    top: 2rem;
+    left: 1rem;
+    font-size: 2rem;
+    font-weight: 700rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: #f5e448;
+    /* background-color: #222; */
+    width: 0;
+    overflow: hidden;
+    transition: width .3s;
+}
+
+.gallery-link:hover .food-name {
+    width: 100%;
+    transition: width 1.5s 0.5s;
+}
+
+.food-description {
+    position: absolute;
+    bottom: 1vw;
+    left: 1rem;
+    width: 70%;
+    font-size: 1.0rem;
+    font-weight: 600rem;
+    color:#f5e448;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    /* background-color: #333; */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s;
+}
+
+.gallery-link:hover .food-description {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1.0s 1s;
+}
+
+
+/* end of section-3 */
+
+
+/* section-4 */
+
+
+/* end of section-4 */
+
+
 
