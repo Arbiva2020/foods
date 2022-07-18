@@ -1,3 +1,15 @@
+//attaching a clickevent to the menu item
+//than we will change the css, so when "change" mode is
+//on - the navbar will change style and vice verse. 
+//we will add "change" to the classess, and that will effect their style/
+//The classList property returns the CSS classnames of an element.
+document.querySelector('.menu').addEventListener
+('click', ()=>{
+   document.querySelectorAll('.target').forEach((item)=>{
+      item.classList.toggle('change')
+   })
+})
+
 // select all the icons:
 // quarySelectorAll method returns an array-like object
 // called "node list", its items have 0 base index number
